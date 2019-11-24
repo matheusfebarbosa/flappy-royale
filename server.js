@@ -33,7 +33,6 @@ var server = app.listen(3000, listen);
 function listen() {
   var host = server.address().address;
   var port = server.address().port;
-  console.log(host);
   console.log('Example app listening at http://'
    + host + ':' + port);
 }
