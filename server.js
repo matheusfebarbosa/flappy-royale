@@ -6,13 +6,14 @@ function random(min, max) {
 const gameState = {
   players: {},
   pipes: [],
-  inGame: false,
-  pipeHeight: 480,
-  pipeWidth: 640
+  inGame: false
 };
 
 const Bird = require('./bird.js');
 const Pipe = require('./pipe.js');
+
+const windowHeight = 480;
+const windowWidth = 640;
 
 var lastPlayerId = 0;
 var inGameFrameCount = 0;
@@ -118,11 +119,11 @@ setInterval(() => {
     } 
 
     if (inGameFrameCount % 75 == 0) {
-      var pipeTop = random(gameState.pipeHeight/6, 
-        3/4 * gameState.pipeHeight);
+      var pipeTop = random(windowHeight/6, 
+        3/4 * windowHeight);
 
       gameState.pipes.push(
-        new Pipe(pipeTop, gameState.pipeWidth, gameState.pipeHeight));
+        new Pipe(pipeTop, windowWidth, windowHeight));
     } 
 
     inGameFrameCount += 1;
@@ -140,9 +141,9 @@ setInterval(() => {
       for(let key in gameState.players){
         gameState.players[key].playing = true;
 
-        var y_axe = random(2/5 * gameState.pipeHeight, 3/5 * gameState.pipeHeight);
+        var y_axe = random(2/5 * windowHeight, 3/5 * windowHeight);
 
-        gameState.players[key].bird = new Bird(y_axe, gameState.pipeHeight);
+        gameState.players[key].bird = new Bird(y_axe, windowHeight);
       }
 
       gameState.pipes = []
