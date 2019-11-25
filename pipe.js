@@ -11,11 +11,10 @@ class Pipe {
     }
 
     hits(bird) {
-        if (bird.y < this.top || bird.y > this.height - this.bottom) {
-        if (bird.x > this.x && bird.x < this.x + this.w) {
+        if ((bird.y < this.top || bird.y > this.height - this.bottom)
+            && bird.x > this.x && bird.x < this.x + this.w) {
             this.highlight = true;
             return true;
-        }
         }
         this.highlight = false;
         return false;
@@ -26,11 +25,7 @@ class Pipe {
     }
 
     offscreen() {
-        if (this.x < -this.w) {
-        return true;
-        } else {
-        return false;
-        }
+        return (this.x < -this.w);
     }
 }
 

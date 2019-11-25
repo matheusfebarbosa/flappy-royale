@@ -15,19 +15,17 @@ class Bird {
 
     update() {
         this.velocity += this.gravity;
-        // this.velocity *= 0.9;
         this.y += this.velocity;
 
         if (this.y > this.height) {
-        this.y = this.height;
-        this.velocity = 0;
+            this.y = this.height;
+            this.velocity = 0;
         }
 
         if (this.y < 0) {
-        this.y = 0;
-        this.velocity = 0;
+            this.y = 0;
+            this.velocity = 0;
         }
-
     }
 }
 

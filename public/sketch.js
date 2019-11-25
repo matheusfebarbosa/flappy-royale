@@ -95,7 +95,6 @@ function update(gameState) {
   }
 }
 
-
 function draw() {
   if(inGame != null){
     background(0);
